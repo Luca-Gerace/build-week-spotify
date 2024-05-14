@@ -1,0 +1,208 @@
+.row {
+  --bs-gutter-x: 0;
+}
+
+.sections {
+  height: 100vh;
+}
+
+.section_left, .section_right {
+  background: #101010;
+  width: 20%;
+}
+.section_left .up{
+  height: 30%;
+}
+.section_left .down{
+  height: 67%;
+  overflow: scroll;
+  padding-bottom: 30%;
+  padding-top: 5%;
+}
+.down::-webkit-scrollbar {
+  width: 9px;
+  }
+  .down::-webkit-scrollbar-track {
+  background-color: #101010;
+  }
+  .down::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3;
+  }
+.down p{
+  color: #b3b3b3;
+  border-radius: 6px;
+  margin-bottom: 0%;
+  font-size: 10px;
+  margin-right: 3px;
+}
+
+.section_left .up .library{
+  margin-bottom: 19.188px;
+}
+.section_left .up{
+  padding-bottom: 1px;
+  border-bottom: 1px solid #b3b3b3;
+}
+.sfondo{
+  padding: 2px;
+  width: 14px;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+#sfondoAdd{
+  background-color: #b3b3b3;
+}
+#sfondoHeart{
+  background: rgb(67,4,244);
+  background: linear-gradient(145deg, rgba(67,4,244,1) 13%, rgba(186,225,217,1) 100%);;
+}
+#sfondoBookmark{
+  background: rgb(0,63,51);
+  background: linear-gradient(145deg, rgba(0,63,51,1) 13%, rgba(0,67,53,1) 100%);
+}
+.section_left .up #sfondoHeart ion-icon{
+  color: white;
+}
+.section_left .up #sfondoAdd ion-icon{
+  color: black;
+}
+.section_left .up #sfondoBookmark ion-icon{
+  color: #149643;
+}
+.section_left .up h6{
+  color: #b3b3b3;
+}
+
+.section_left .up ion-icon:nth-child(-n+3){
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+.section_left .up h6{
+  font-size: 10px;
+}
+
+.section_left .up h6:hover{
+  color: white;
+  transition-delay: 0.1s;
+}
+.home:hover, .search:hover, .library:hover, .add:hover, .favourite:hover, .save:hover, .account:hover, .down p:hover{
+  background-color: #363636;
+  transition: 0.3s;
+  transition-delay: 0.1s;
+  cursor: pointer;
+}
+.section_right{
+  width: 15%;
+}
+.section_right .account img{
+  width: 27.5px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.section_right .account .account-info h6{
+  font-size: x-small;
+  color: #b3b3b3
+}
+.section_right .account .account-info p, .section_right .account p{
+  font-size: xx-small;
+  color: #b3b3b3
+}
+.section_right .account .account-info ion-icon{
+  color: #b3b3b3
+}
+
+.section_center::-webkit-scrollbar {
+  width: 9px;
+  }
+  .section_center::-webkit-scrollbar-track {
+  background-color: #101010;
+  }
+  .section_center::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3;
+  }
+.controls {
+  height: 12.5vh;
+  width: 100%;
+  background: #181818;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid #b3b3b3;
+  cursor: pointer;
+}
+.controls-left, .controls-right{
+  width: 30%;
+}
+.controls-left img{
+  width: 45px;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+}
+.controls-left h6{
+  color: white;
+  font-size: 13px;
+}
+.controls-left p{
+  font-size: 10px;
+  color: #b3b3b3;
+}
+.controls-left ion-icon, .controls-right ion-icon{
+  color: #b3b3b3;
+}
+.controls-right .progress{
+  width: 20%;
+  height: 3px;
+  background-color: #b3b3b3;
+  border-radius: 4px;
+}
+.controls-right .progress .percent{
+  width: 35%;
+  height: 3px;
+  background-color: white;
+  border-radius: 4px;
+}
+.controls-center .bar .progress{
+  width: 90%;
+  background-color: #b3b3b3;
+  height: 3px;
+  border-radius: 4px;
+}
+.controls-center .bar .progress .percent{
+  width: 60%;
+  background-color: white;
+  height: 3px;
+
+}
+.controls-center-options ion-icon:first-of-type, .controls-center-options ion-icon:last-of-type{
+  color: #1db954;
+}
+.controls-center-options ion-icon{
+  font-size: large;
+  color: #b3b3b3;
+}
+.controls-center-options ion-icon:nth-of-type(3){
+  font-size: xx-large;
+  color: white;
+  
+}
+.bar{
+  width: 100%;
+}
+.bar p{
+  font-size: x-small;
+  width: 5%;
+  color: #b3b3b3;
+}
+.controls ion-icon:hover{
+  transform: scale(120%,120%);
+  transition: 0.3s;
+  transition-delay: 0.15s;
+  color: #1db954;
+}
+.controls-center{
+  width: 40%;
+}

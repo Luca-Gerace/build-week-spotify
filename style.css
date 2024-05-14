@@ -1,0 +1,135 @@
+/* SECTION CENTER */
+.section_center {
+  background: #121212;
+  width: 65%;
+  overflow: scroll;
+}
+@media (max-width: 991px) {
+  .section_center {
+    width: 100%;
+  }
+}
+.cardtop{
+  height: inherit;
+  background: rgb(0,0,0);
+background: linear-gradient(30deg, rgba(0,0,0,1) 0%, rgba(31,31,31,1) 100%);
+  background-size: 100% 100%;
+  border: none;
+  border-radius: 5px;
+
+}
+.section_center .jumbtron{
+  height: 160px;
+}
+.section_center .jumbtron .cardtop img{
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+}
+.account-section-center{
+  background-color: black; 
+}
+.account-section-center img{
+  width: 20px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.account-section-center p{
+  font-size: x-small;
+}
+.section_center .jumbtron .cardtop p, .section_center .jumbtron .cardtop h6{
+  font-size: xx-small;
+}
+.section_center .jumbtron .cardtop button:last-of-type{
+  border: 1px solid white;
+  background-color: black;
+}
+.section_center .jumbtron .cardtop button:first-of-type{
+  background-color: #1ed760;
+  border: none;
+}
+.buonasera-playlist{
+  background: rgb(42,42,42);
+  background: linear-gradient(270deg, rgba(42,42,42,1) 70%, rgba(32,32,32,1) 80%);
+  border-radius: 5px;
+}
+
+.buonasera {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 558px) {
+  .buonasera {
+  grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 450px) {
+  .buonasera {
+  grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.buonasera img{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: 48px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+.buonasera p{
+  font-size: x-small;
+  color: white;
+  font-weight: bold;
+}
+.altro-di-ciò{
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+@media (max-width: 1200px) {
+  .altro-di-ciò {
+  grid-template-columns: repeat(4, 2fr);
+  }
+}
+@media (max-width: 1100px) {
+  .altro-di-ciò {
+  grid-template-columns: repeat(3, 2fr);
+  }
+}
+@media (max-width: 509px) {
+  .altro-di-ciò {
+  grid-template-columns: repeat(2, 2fr);
+  }
+}
+.altro-di-ciò a{
+  width: 150px;
+
+}
+.altro-di-ciò a .card{
+  border-radius: 5px;
+  background: rgb(24,24,24);
+background: linear-gradient(315deg, rgba(24,24,24,1) 54%, rgba(23,23,23,1) 74%);
+  border: none;
+  width: inherit;
+}
+
+.altro-di-ciò .card a img{
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.altro-di-ciò .card h5, .altro-di-ciò .card p{
+  font-size: x-small;
+}
+
+.card {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+/* SECTION CENTER */

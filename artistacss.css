@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.row {
+  --bs-gutter-x: 0;
+}
+
+body {
+  background-color: #101010;
+}
+.section_left,
+.section_right {
+  background: #101010;
+}
+
+/* .section_center {
+  position: relative;
+  min-height: 100vh;
+  height: fit-content;
+} */
+.following:hover{
+  background-color: #1ED760;
+}
+.followingToggle{
+  background-color: #1ED760!important;
+}
+.track-list {
+  list-style-type: none;
+  counter-reset: item;
+  
+}
+.track-list li::marker{
+  content: counter(item);
+}
+.track-list li {
+  counter-increment: item;
+  font-weight: bold;
+}
+.section_center {
+  background: #121212;
+  width: 65%;
+}
+@media (max-width: 991px) {
+  .section_center {
+    width: 100%;
+  }
+}
+
+.controls {
+  height: 12.5vh;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid white;
+}
+
+.jumbotron {
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ddbc27",endColorstr="#363636",GradientType=1);
+  color: white;
+  height: 30vh;
+  width: 100%;
+  top: 0;
+}
+
+.jumbotron_controls {
+  padding-inline: 20px;
+}
+
+.controls_btns ion-icon {
+  font-size: 2rem;
+  color: #363636;
+  margin-top: 5px;
+}
+
+.controls_profile {
+  background: #363636;
+  border-radius: 50px;
+  padding: 3px;
+  width: 120px;
+}
+
+.controls_profile img {
+  width: 25px;
+  border-radius: 50%;
+}
+
+.jumbotron_main {
+  padding: 20px;
+}
+
+.jumbotron_main img {
+  width: 150px;
+  aspect-ratio: 1/1;
+}
+
+.jumbotron_text {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-self: flex-end;
+    margin-left: 20px;
+}
+
+.jumbotron_text h6 {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.jumbotron_text h1 {
+  font-size: 56px;
+  font-weight: 700;
+}
+.jumbotron{
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#verificato{
+  background-color: #3d91f4;
+  border-radius: 50%;
+  padding: 1px;
+}
+.section_center .container{
+background: linear-gradient(180deg, rgba(34,34,34,1) 30%, rgba(18,18,18,1) 100%);
+color: white;
+}
+.hidden{
+overflow: hidden;
+}
+.scroll{
+overflow-y: scroll;
+}
+.div_scroll::-webkit-scrollbar {
+width: 9px;
+}
+.div_scroll::-webkit-scrollbar-track {
+background-color: transparent;
+}
+.div_scroll::-webkit-scrollbar-thumb {
+background-color: #b3b3b3;
+}
+#visual-more{
+  border: none;
+  border-radius: 20px;
+  background-color: #b3b3b3;
+  font-weight: bold;
+}
