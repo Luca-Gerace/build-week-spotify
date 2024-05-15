@@ -3,197 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- bootstrap css -->
+    <title>Spotify Fake</title>
+    <link rel="icon" sizes="32x32" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon16.1c487bff.png"/>
+    <link rel="icon" href="https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico"/>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <!-- bootstrap css & icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-    <header></header>
-
-
-    <main class="w-100 d-flex justify-content-between ">
+<body class="overflow-hidden">
+    <main class="container-fluid p-0 m-0">
+        <div class="row w-100 bg-black pb-5 m-0">
+            <!-- Left sidebar -->
+            <aside class="col-3 d-flex flex-column text-white p-3">
+                <!-- Menu -->
+                <ul class="nav nav-pills flex-column mb-5">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link text-white" aria-current="page">
+                        <i class="bi bi-house-door"></i> Home
+                      </a>
+                    </li>
+                    <li>
+                    <a href="#" class="nav-link text-white" aria-current="page">
+                        <i class="bi bi-search"></i> Cerca
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link text-white">
+                        <i class="bi bi-collection"></i> La tua libreria
+                      </a>
+                    </li>
+                    <!-- playlist -->
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-plus-square-fill"></i> Crea playlist
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-heart"></i> Brani che ti piacciono
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-bookmark"></i> I tuoi episodi
+                        </a>
+                    </li>
+                </ul>
+                <!-- Posts -->
+                <div id="postsContainer" class="py-5 mx-3 border-top border-secondary"></div>
+            </aside>
     
-        <aside class="d-flex flex-column align-items-stretch flex-shrink-0 bg-black text-white">
-            <!-- UPPER -->
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                  <a href="#" class="nav-link text-white" aria-current="page">
-                    <i class="bi bi-house-door"></i> Home
-                  </a>
-                </li>
-                <li>
-                <a href="#" class="nav-link text-white" aria-current="page">
-                    <i class="bi bi-search"></i> Cerca
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link text-white">
-                    <i class="bi bi-collection"></i> La tua libreria
-                  </a>
-                </li>
-                <!-- playlist -->
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <i class="bi bi-plus-square-fill"></i> Crea playlist
+            <!-- Contents -->
+            <div id="songsContainer" class="bg-black-700 col-7 position-relative p-0 pb-5">
+                <!-- Controllers -->
+                <div class="bg-black-700 d-flex justify-content-between align-items-center position-fixed z-1 left-0 top-0 p-4 text-white" style="width:inherit">
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white"><i class="bi bi-chevron-left fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-chevron-right fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
+                    </div>
+                    <a href="#" class="text-decoration-none bg-black-500 rounded-pill d-flex justify-content-start align-items-center">
+                        <img src="../assets/user-2.png" alt="Username" class="user-img-s" />
+                        <p class="px-3 py-2 m-0 text-white fs-7">Username</p>
                     </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <i class="bi bi-heart"></i> Brani che ti piacciono
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <i class="bi bi-bookmark"></i> I tuoi episodi
-                    </a>
-                </li>
-            </ul>
-            <!-- LOWER -->
-            <div class="border-bottom scrollarea bg-black">
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-            </div>
-        </aside>
-
-        <section class="bg-dark bg-gradient">
-
-            <!-- Jumbotron container -->
-            <div id="jumbotron"></div>
-
-            <!-- pills section -->
-            <h5 class="text-white my-3">Titoli del momento</h5>
-            <div id="pillsContainer" class="buonasera gap-2"></div>
-
-            <!-- cards section -->
-            <h5 class="text-white my-3">Titoli del momento</h5>
-            <div id="cardsContainer" class="gap-2"></div>
-
-        </section>
+                </div>
+                <section class="w-100 h-100 position-absolute top-0 left-0 overflow-y-auto py-5 px-4">
+                    <!-- Jumbotron container -->
+                    <div id="jumbotron"></div>
         
-        <aside class="d-flex flex-column align-items-stretch flex-shrink-0 bg-black text-white">
-            <!-- UPPER -->
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                  <a href="#" class="nav-link text-white" aria-current="page">
-                    <i class="bi bi-house-door"></i> Home
-                  </a>
-                </li>
-                <li>
-                <a href="#" class="nav-link text-white" aria-current="page">
-                    <i class="bi bi-search"></i> Cerca
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link text-white">
-                    <i class="bi bi-collection"></i> La tua libreria
-                  </a>
-                </li>
-                <!-- playlist -->
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <i class="bi bi-plus-square-fill"></i> Crea playlist
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <i class="bi bi-heart"></i> Brani che ti piacciono
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <i class="bi bi-bookmark"></i> I tuoi episodi
-                    </a>
-                </li>
-            </ul>
-            <!-- LOWER -->
-            <div class="border-bottom scrollarea bg-black">
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
-                <p class="px-3 py-1 lh-sm bg-black text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi!
-                </p>
+                    <!-- pills section -->
+                    <h2 class="fw-bold text-white my-3">Buonasera</h2>
+                    <div id="pillsContainer" class="row"></div>
+        
+                    <!-- cards section -->
+                    <h2 class="fw-bold text-white pt-5 pb-3">Altro di ciò che ti piace</h2>
+                    <div id="cardsContainer" class="row"></div>
+                </section>
             </div>
-        </aside>
-    
+            
+            <!-- Right sidebar -->
+            <aside class="col-2 d-flex flex-column text-white p-3">
+                <div class="d-flex justify-content-between pt-3">
+                  <h5>Attività amici</h5>
+                  <div class="d-flex gap-3">
+                    <i class="bi bi-person-add"></i>
+                    <i class="bi bi-x-lg"></i>
+                  </div>
+                </div>
+                <ul id="friendsContainer" class="flex-column pt-5 ps-0 mb-5">
+                </ul>
+            </aside>
+        </div>
+        <!-- Player -->
+        <section id="player" class="container-fluid position-fixed bottom-0 left-0 p-4 bg-dark"></section>
     </main>
 
     <!-- bootstrap js -->
