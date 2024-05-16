@@ -20,7 +20,7 @@
 </head>
 <body class="overflow-hidden bg-black-700">
     <main class="container-fluid p-0 m-0">
-        <div class="row w-100 bg-black pb-5 m-0">
+        <div class="vh-100 row w-100 bg-black m-0">
             <!-- Left sidebar -->
             <aside class="col col-md-3 col-lg-3 col-xl-2 d-md-flex d-none flex-column text-white p-3">
                 <!-- Menu -->
@@ -68,52 +68,26 @@
             </aside>
     
             <!-- Contents -->
-            <div id="songsContainer" class="bg-black-700 col position-relative p-0 pb-5">
+            <div class="bg-black-700 col p-0">
                 <!-- Controllers -->
                 <div class="page-controllers no-aside bg-black-700 d-flex justify-content-between align-items-center position-fixed z-2 left-0 top-0 p-4 text-white">
-                    <div class="d-flex gap-3">
+                    <div class="d-flex align-items-center gap-3">
                         <a href="#" class="text-white"><i class="bi bi-chevron-left fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
                         <a href="#" class="text-white"><i class="bi bi-chevron-right fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
+                        <form class="d-flex align-items-center gap-3 ms-2">
+                            <input id="searchInput" type="text" class="form-control rounded-pill bg-black-500 border-0 text-white-50 fs-7 px-3 py-2" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Cosa vuoi ascoltare?" required />
+                            <button id="searchButton" type="submit" class="d-flex align-items-center justify-content-center brand-bg rounded-circle border-0"><i class="bi bi-search text-black p-2"></i></button>
+                        </form>
                     </div>
                     <a href="#" class="text-decoration-none bg-black-500 rounded-pill d-flex justify-content-start align-items-center">
                         <img src="../assets/user-2.png" alt="Username" class="user-img" />
                         <p class="px-3 py-2 m-0 text-white fs-7">Username</p>
                     </a>
                 </div>
-                <section class="w-100 h-100 position-absolute md-top-0 md-left-0 overflow-y-auto py-5 px-4">
-                    
-                    <!-- Jumbotron container -->
-                    <div id="jumbotron" class="skeleton">
-                        <!-- Skeleton -->
-                        <div class="jumbotron">
-                            <div class="bg-black bg-gradient d-none d-md-flex align-items-center my-5 p-4 gap-4">
-                                <img id="jumbotron-img" src="https://picsum.photos/200" class="rounded-1" alt="skeleton" />
-                                <div class="d-flex flex-column gap-2 m-0 text-whit w-75">
-                                    <p id="jumbotron-upper-text" class="text-white m-0 rounded-pill w-25">ALBUM</p>
-                                    <h1 id="jumbotron-title" class="text-white fw-bold m-0 text-truncate rounded-pill w-75">Song title</h1>
-                                    <p id="jumbotron-artist" class="text-white rounded-pill m-0 w-50">Artist name</p>
-                                    <p id="jumbotron-lower-text" class="text-white m-0 rounded-pill w-50">Ascolta il nuovo singolo di artist name</p>
-                                    <div id="jumbotron-buttons" class="d-flex gap-3 align-items-center mt-2">
-                                        <button class="brand-bg brand-border rounded-pill py-2 fw-bold">
-                                            Play
-                                        </button>
-                                        <button class="btn btn-outline-dark text-white rounded-pill border-white border-1 py-2 fw-bold">
-                                            Salva
-                                        </button>
-                                        <ion-icon class="text-white" name="ellipsis-horizontal"></ion-icon>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- pills section -->
-                    <h2 class="fw-bold text-white mb-3 mt-5 mt-md-3">Buonasera</h2>
-                    <div id="pillsContainer" class="row"></div>
-        
-                    <!-- cards section -->
-                    <h2 class="fw-bold text-white pt-5 pb-3">Altro di ciò che ti piace</h2>
-                    <div id="cardsContainer" class="row"></div>
+                <!-- Contents -->
+                <section id="contentsContainer" class="h-100 position-absolute md-top-0 md-left-0 overflow-y-auto py-5 px-4 mt-5">
+                    <h2 class="fw-bold text-white mb-3 mt-5 mt-md-3 pt-5">Sfoglia tutto</h2>
+                    <div id="cardsContainer" class="row pt-2 py-5"></div>
                 </section>
             </div>
 
