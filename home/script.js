@@ -13,28 +13,7 @@ const searchUrl = `${url}/search?q=`;
 
 const request = { method: 'GET', headers: {"Content-Type": "application/json"}}
 
-// chiamata per jumbotron
-const jumbotronHandler = async () => {
-
-    try {
-        let response = await fetch(`${albumUrl}/${randomNumber()}`, request);
-        let data = await response.json();
-
-        // Se l'id artista randomico non esiste
-        if (data.error) {
-            // rilancio la funzione
-            jumbotronHandler();
-        } else {
-            // altrimenti lancio funzione di creazione jumbotron
-            createJumbotron(data);   
-        }
-
-    } catch(error) {
-        console.error('error:', error);
-    }
-}
-
-// chiamata per pills e cards
+// chiamata per contenuti
 const fetchSongs = async () => {
     try {
         let response = await fetch(`${searchUrl}${randomString(3)}`, request);
@@ -49,15 +28,19 @@ const fetchSongs = async () => {
             // Aumento il counter
             counter++;
 
-            // se counter minore di 7
-            if (counter < 7) {
+            // alla prima iterazione
+            if (counter === 1) {
+                // creo jumbotron
+                createJumbotron(item);
+            // se counter è compreso tra 2 e 7
+            } else if (counter < 8) {
                 // creo pills
                 createPill(item);
-            // se counter minore di 15
-            } else if (counter < 15) {
+            // se counter è compreso tra 8 e 15
+            } else if (counter < 16) {
                 // creo cards
                 createCard(item);
-            // se counter superiore a 11 esco dalla funzione
+            // se counter superiore a 15 esco dalla funzione
             } else {
                 return
             }          
@@ -69,6 +52,8 @@ const fetchSongs = async () => {
 }
 
 /* ----------------------- DATI STATICI ----------------------- */
+
+// Genera post a  partire dall'array post
 const posts = [
     "Ciao, mondo! 😊",
     "Questo è un esempio! 😎",
@@ -101,8 +86,6 @@ const posts = [
     "Vivi il momento! ⏳",
     "Raggiungi le stelle! 🌠"
 ];
-
-// Genera post
 function createPosts() {
     posts.forEach(post => {
         const singlePost = document.createElement('p');
@@ -113,13 +96,12 @@ function createPosts() {
     })
 }
 
+// Genera amici a partire dall'array friends
 const friends = [
     {name: 'Mario Rossi', img: '../assets/user-1.png', lastActivity: '3 ore', artist: 'Salmo', album: 'Machete Mix', song: 'Fuggitivo'},
     {name: 'Giuseppe Verdi', img: '../assets/user-2.png', lastActivity: '4 ore', artist: 'Eminem', album: 'Encore', song: 'Mockingbird'},
     {name: 'Salvatore Gialli', img: '../assets/user-1.png', lastActivity: '8 ore', artist: 'Liberato', album: 'Liberato', song: '9 maggio'},
 ];
-
-// Genera amici
 function createFriends() {
     friends.forEach(friend => {
         const singleFriend = document.createElement('li');
@@ -165,11 +147,11 @@ function createJumbotron(song) {
         jLowTest.classList.remove('w-50');
 
         jBtns.innerHTML = `
-            <button id="btn-${song.tracks.data[0].id}" onclick="playSong(${song.tracks.data[0].id})" class="brand-bg brand-border rounded-pill py-2 fw-bold">
+            <button id="btn-${song.id}" onclick="playSong(${song.id})" class="brand-bg brand-border rounded-pill py-2 fw-bold">
                 Play
             </button>
-            <audio id="audio-${song.tracks.data[0].id}">
-                <source src="${song.tracks.data[0].preview}" type="audio/mpeg">
+            <audio id="audio-${song.id}">
+                <source src="${song.preview}" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
             <button class="btn btn-outline-dark text-white rounded-pill border-white border-1 py-2 fw-bold">
@@ -278,6 +260,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Al caricamento del DOM lancio le funzioni per creare i contenuti
     createPosts();
     createFriends();
-    jumbotronHandler();
     fetchSongs();
 })
