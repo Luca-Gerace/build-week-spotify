@@ -26,7 +26,7 @@ const jumbotronHandler = async () => {
             jumbotronHandler();
         } else {
             // altrimenti lancio funzione di creazione jumbotron
-            createJumbtron(data);   
+            createJumbotron(data);   
         }
 
     } catch(error) {
@@ -141,39 +141,44 @@ function createFriends() {
 }
 
 /* ------------------------- FUNZIONI ------------------------- */
-// Creo jumbtron
-function createJumbtron(song) {
+// Creo jumbotron
+function createJumbotron(song) {
 
-    const jumbtron = document.createElement('div');
+    // Punto elementi jumbotron
+    const jImg = document.getElementById('jumbotron-img');
+    const jUpText = document.getElementById('jumbotron-upper-text');
+    const jTitle = document.getElementById('jumbotron-title');
+    const jArtist = document.getElementById('jumbotron-artist');
+    const jLowTest = document.getElementById('jumbotron-lower-text');
+    const jBtns = document.getElementById('jumbotron-buttons');
 
-    jumbtron.classList.add('jumbtron');
+    setTimeout(() => {
+        jImg.src = ``;
+        jImg.src = `${song.artist.picture_xl}`;
+        jImg.alt = `${song.title}`;
+        jUpText.innerText = `ALBUM`;
+        jTitle.innerText = `${song.title}`;
+        jTitle.classList.remove('w-75');
+        jArtist.innerText = `${song.artist.name}`;
+        jArtist.classList.remove('w-50');
+        jLowTest.innerText = `Ascolta il nuovo singolo di ${song.artist.name}`;
+        jLowTest.classList.remove('w-50');
 
-    jumbtron.innerHTML = `
-        <div class="bg-black bg-gradient d-none d-md-flex align-items-center my-5 px-3 py-4 gap-5">
-            <img src="${song.artist.picture_xl}" alt="${song.title}"  class="w-25" />
-            <div class="mb-0 text-white card-body w-75">
-                <p class="mb-1 text-white card-text">ALBUM</p>
-                <h1 class="${song.title.length < 24 ? 'title' : 'fs-1'} fw-bold m-0">${song.title}</h1>
-                <p class="mb-2 text-white card-title">${song.artist.name}</p>
-                <p class="mb-0 text-white card-text">Ascolta il nuovo singolo di ${song.artist.name}</p>
-                <div class="d-flex gap-3 align-items-center mt-3">
-                    <button id="btn-${song.tracks.data[0].id}" onclick="playSong(${song.tracks.data[0].id})" class="brand-bg brand-border rounded-pill py-2 fw-bold">
-                        Play
-                    </button>
-                    <audio id="audio-${song.tracks.data[0].id}">
-                        <source src="${song.tracks.data[0].preview}" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <button class="btn btn-outline-dark text-white rounded-pill border-white border-1 py-2 fw-bold">
-                        Salva
-                    </button>
-                    <ion-icon class="text-white" name="ellipsis-horizontal"></ion-icon>
-                </div>
-            </div>
-        </div>
-    `
+        jBtns.innerHTML = `
+            <button id="btn-${song.tracks.data[0].id}" onclick="playSong(${song.tracks.data[0].id})" class="brand-bg brand-border rounded-pill py-2 fw-bold">
+                Play
+            </button>
+            <audio id="audio-${song.tracks.data[0].id}">
+                <source src="${song.tracks.data[0].preview}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <button class="btn btn-outline-dark text-white rounded-pill border-white border-1 py-2 fw-bold">
+                Salva
+            </button>
+        `
+        jumbotronContainer.classList.remove('skeleton');
 
-    jumbotronContainer.appendChild(jumbtron);
+    }, 1500);
 }
 
 // Creo pills
@@ -238,6 +243,8 @@ function playSong(id) {
         }
     } else {
         audio.pause();
+        //  riavvolgo la traccia
+        audio.currentTime = 0
         // Check per capire se il btn ha testo o icona
         if (btn.innerText === 'Pause') {
             btn.innerText = 'Play';

@@ -33,12 +33,18 @@ html, body {
 }
 
 /* JUMBOTRON */
-.jumbtron .title {
+.jumbotron .title {
     font-size: 60px;
 }
 
-.jumbtron button {
+.jumbotron button {
     min-width: 100px;
+}
+
+.jumbotron img {
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
 }
 
 /* CARDS */
@@ -120,26 +126,29 @@ html, body {
 
 /* SKELETON */
 
-/* .loading-skeleton, .loading-skeleton h1 {
-  color: transparent;
+.skeleton h1, .skeleton p, .skeleton button {
+  color: transparent !important;
   appearance: none;
   -webkit-appearance: none;
-  background-color: #eee;
-  border-color: #eee;
-
+  background-color: #3d3d3d;
   pointer-events: none;
-  animation: loading-skeleton 1s infinite alternate;
+  animation: skeleton 0.75s infinite alternate;
 }
 
-.loading-skeleton img {
-    filter: grayscale(100) contrast(0%) brightness(1.8);
+.skeleton button {
+    border-color: #3d3d3d !important;
 }
 
-@keyframes loading-skeleton {
+.skeleton img {
+    animation: skeleton 0.75s infinite alternate;
+    filter: grayscale(100) contrast(0%) brightness(0.5);
+}
+
+@keyframes skeleton {
   from {
     opacity: .4;
   }
   to {
     opacity: 1;
   }
-} */
+}

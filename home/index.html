@@ -76,8 +76,28 @@
                 <section class="w-100 h-100 position-absolute md-top-0 md-left-0 overflow-y-auto py-5 px-4">
                     
                     <!-- Jumbotron container -->
-                    <div id="jumbotron">
+                    <div id="jumbotron" class="skeleton">
                         <!-- Skeleton -->
+                        <div class="jumbotron">
+                            <div class="bg-black bg-gradient d-none d-md-flex align-items-center my-5 p-4 gap-4">
+                                <img id="jumbotron-img" src="https://picsum.photos/200" class="rounded-1" alt="skeleton" />
+                                <div class="d-flex flex-column gap-2 m-0 text-whit w-75">
+                                    <p id="jumbotron-upper-text" class="text-white m-0 rounded-pill w-25">ALBUM</p>
+                                    <h1 id="jumbotron-title" class="text-white fw-bold m-0 text-truncate rounded-pill w-75">Song title</h1>
+                                    <p id="jumbotron-artist" class="text-white rounded-pill m-0 w-50">Artist name</p>
+                                    <p id="jumbotron-lower-text" class="text-white m-0 rounded-pill w-50">Ascolta il nuovo singolo di artist name</p>
+                                    <div id="jumbotron-buttons" class="d-flex gap-3 align-items-center mt-2">
+                                        <button class="brand-bg brand-border rounded-pill py-2 fw-bold">
+                                            Play
+                                        </button>
+                                        <button class="btn btn-outline-dark text-white rounded-pill border-white border-1 py-2 fw-bold">
+                                            Salva
+                                        </button>
+                                        <ion-icon class="text-white" name="ellipsis-horizontal"></ion-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
         
                     <!-- pills section -->
