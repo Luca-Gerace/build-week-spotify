@@ -74,7 +74,7 @@ html, body {
 
 
 /* SKELETON */
-.skeleton h1, .skeleton h2, .skeleton h3, .skeleton p, .skeleton button {
+.skeleton h1, .skeleton h2, .skeleton h3, .skeleton p, .skeleton a, .skeleton button {
     color: transparent !important;
     appearance: none;
     -webkit-appearance: none;

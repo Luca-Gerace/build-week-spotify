@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Album</title>
-    <link rel="icon" sizes="32x32" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png"/>
-    <link rel="icon" sizes="16x16" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon16.1c487bff.png"/>
-    <link rel="icon" href="https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico"/>
+    <link rel="icon" sizes="32x32" type="image/png"
+        href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png" />
+    <link rel="icon" sizes="16x16" type="image/png"
+        href="https://open.spotifycdn.com/cdn/images/favicon16.1c487bff.png" />
+    <link rel="icon" href="https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico" />
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
     <!-- bootstrap css & icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom css -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="home/home.css">
     <link rel="stylesheet" href="album/album.css">
 </head>
+
 <body class="overflow-hidden bg-black-700">
     <main class="container-fluid p-0 m-0">
         <div class="row w-100 bg-black pb-5 m-0">
@@ -67,38 +74,47 @@
                 <!-- Posts -->
                 <div id="postsContainer" class="py-5 mx-3 border-top border-secondary"></div>
             </aside>
-    
+
             <!-- Contents -->
             <div id="songsContainer" class="brand-gradient col col-md-9 col-xl-8 position-relative p-0 pb-5">
                 <!-- Controllers -->
-                <div class="page-controllers bg-transparent d-flex justify-content-between align-items-center position-fixed z-2 left-0 top-0 p-4 text-white">
+                <div
+                    class="page-controllers bg-transparent d-flex justify-content-between align-items-center position-fixed z-2 left-0 top-0 p-4 text-white">
                     <div class="d-flex align-items-center gap-3">
-                        <a href="#" class="text-white"><i class="bi bi-chevron-left fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
-                        <a href="#" class="text-white"><i class="bi bi-chevron-right fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
+                        <a href="#" id="dietro" class="text-white"><i
+                                class="bi bi-chevron-left fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
+                        <a href="#" id="avanti" class="text-white"><i
+                                class="bi bi-chevron-right fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
                     </div>
-                    <a href="#" class="text-decoration-none bg-black-500 rounded-pill d-flex justify-content-start align-items-center">
+                    <a href="#"
+                        class="text-decoration-none bg-black-500 rounded-pill d-flex justify-content-start align-items-center">
                         <img src="_assets/user-2.png" alt="Username" class="user-img" />
                         <p class="px-3 py-2 m-0 text-white fs-7">Username</p>
                     </a>
                 </div>
 
-                <section class="w-100 h-100 position-absolute md-top-0 md-left-0 overflow-y-auto py-5">    
+                <section class="w-100 h-100 position-absolute md-top-0 md-left-0 overflow-y-auto py-5">
                     <!-- Jumbotron container -->
                     <div id="jumbotron" class="skeleton px-4">
                         <!-- Skeleton -->
                         <div class="jumbotron">
                             <div class="bg-transparent d-none d-md-flex align-items-center my-5 p-4 gap-4">
-                                <img id="jumbotron-img" src="https://picsum.photos/200" class="rounded-1" alt="skeleton" />
+                                <img id="jumbotron-img" src="https://picsum.photos/200" class="rounded-1"
+                                    alt="skeleton" />
                                 <div class="d-flex flex-column gap-2 m-0 text-whit w-75">
                                     <p id="jumbotron-upper-text" class="text-white m-0 rounded-pill w-25">ALBUM</p>
-                                    <h1 id="jumbotron-title" class="text-white fw-bold m-0 text-truncate rounded-pill w-75">Song title</h1>
-                                    <a href="#" id="jumbotron-artist" class="text-decoration-none text-white rounded-pill m-0 w-50">Artist name</a>
-                                    <p id="jumbotron-lower-text" class="text-white m-0 rounded-pill w-50">Ascolta ora</p>
+                                    <h1 id="jumbotron-title"
+                                        class="text-white fw-bold m-0 text-truncate rounded-pill w-75">Song title</h1>
+                                    <a href="#" id="jumbotron-artist"
+                                        class="text-decoration-none text-white rounded-pill m-0 w-50">Artist name</a>
+                                    <p id="jumbotron-lower-text" class="text-white m-0 rounded-pill w-50">Ascolta ora
+                                    </p>
                                     <div id="jumbotron-buttons" class="d-flex gap-3 align-items-center mt-2">
                                         <button class="brand-bg brand-border rounded-pill py-2 fw-bold">
                                             Play
                                         </button>
-                                        <button class="btn btn-outline-dark text-white rounded-pill border-white border-1 py-2 fw-bold">
+                                        <button
+                                            class="btn btn-outline-dark text-white rounded-pill border-white border-1 py-2 fw-bold">
                                             Salva
                                         </button>
                                         <ion-icon class="text-white" name="ellipsis-horizontal"></ion-icon>
@@ -107,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- album songs list -->
                     <div id="songsTable" class="skeleton bg-gradinent-trasparent d-flex flex-column gap-3 py-5 px-4">
                         <div class="row d-flex justify-content-between align-items-center border-bottom-1">
@@ -117,7 +133,7 @@
                             </div>
                             <p class="col-3 text-white-50 text-end">RANK</p>
                             <!-- TODO: inserire icona -->
-                            <p class="col-3 text-white-50 text-end">durata</p> 
+                            <p class="col-3 text-white-50 text-end">DURATA</p>
                         </div>
                         <div id="songlist" class="row gap-3">
 
@@ -127,22 +143,23 @@
 
                 </section>
             </div>
-            
+
             <!-- Right sidebar -->
             <aside class="col d-none d-xl-flex flex-column text-white p-3">
                 <div class="d-flex justify-content-between pt-3">
-                  <h5>Attività amici</h5>
-                  <div class="d-flex gap-3">
-                    <i class="bi bi-person-add"></i>
-                    <i class="bi bi-x-lg"></i>
-                  </div>
+                    <h5>Attività amici</h5>
+                    <div class="d-flex gap-3">
+                        <i class="bi bi-person-add"></i>
+                        <i class="bi bi-x-lg"></i>
+                    </div>
                 </div>
                 <ul id="friendsContainer" class="flex-column pt-5 ps-0 mb-5">
                 </ul>
             </aside>
 
             <!-- Player -->
-            <section id="player" class="container-fluid position-fixed bottom-0 left-0 px-4 py-3 bg-black-500 z-2 shadow-lg">
+            <section id="player"
+                class="container-fluid position-fixed bottom-0 left-0 px-4 py-3 bg-black-500 z-2 shadow-lg">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex gap-3 align-items-center">
                         <img class="w-25" src="https://picsum.photos/100" alt="">
@@ -150,8 +167,8 @@
                             <strong class="fs-7 text-white">Nome canzone</strong>
                             <span class="fs-8 text-white-50">Artista</span>
                         </div>
-                        </div>
-                        <div class="d-flex align-items-center flex-column">
+                    </div>
+                    <div class="d-flex align-items-center flex-column">
                         <div class="d-flex gap-4 justify-content-between align-items-center pb-1">
                             <i class="bi bi-shuffle text-white fs-4"></i>
                             <i class="bi bi-skip-backward-fill text-white fs-4"></i>
@@ -164,14 +181,14 @@
                             <input type="range" min="1" max="100" value="0" class="seek_slider">
                             <div class="fs-7 text-white">00:30</div>
                         </div>
-                        </div>
-                
-                        <div class="d-flex gap-3 justify-content-between align-items-center">
-                            <i class="bi bi-mic text-white fs-4"></i>
-                            <i class="bi bi-chat-right-text text-white fs-4"></i>
-                            <i class="bi bi-volume-up text-white fs-4"></i>
-                            <input type="range" min="1" max="100" value="99" class="volume_slider text-light">
-                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 justify-content-between align-items-center">
+                        <i class="bi bi-mic text-white fs-4"></i>
+                        <i class="bi bi-chat-right-text text-white fs-4"></i>
+                        <i class="bi bi-volume-up text-white fs-4"></i>
+                        <input type="range" min="1" max="100" value="99" class="volume_slider text-light">
+                    </div>
                 </div>
             </section>
         </div>
@@ -179,9 +196,12 @@
     </main>
 
     <!-- bootstrap js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- custom js -->    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- custom js -->
     <script src="script.js"></script>
     <script src="album/album.js"></script>
 </body>
+
 </html>

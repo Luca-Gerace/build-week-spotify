@@ -2,11 +2,13 @@
 const jumbotronContainer = document.getElementById('jumbotron');
 const songlist = document.getElementById('songlist');
 const songsTable = document.getElementById('songsTable');
+const avanti = document.getElementById('avanti');
+const indietro = document.getElementById('indietro');
 
 //
 const url = 'https://striveschool-api.herokuapp.com/api/deezer/album';
 
-const request = { method: 'GET', headers: {"Content-Type": "application/json"}}
+const request = { method: 'GET', headers: { "Content-Type": "application/json" } }
 
 const params = new URLSearchParams(window.location.search);
 
@@ -27,8 +29,8 @@ const fetchSong = async () => {
             counter++;
         })
 
-    // Gestisco eventuali errori
-    } catch(error) {
+        // Gestisco eventuali errori
+    } catch (error) {
         console.error('error:', error);
     }
 }
@@ -96,5 +98,36 @@ function createSongList(song, counter) {
     songlist.appendChild(listItem);
     songsTable.classList.remove('skeleton');
 }
+// Song player
+function playSong(id) {
+    // Punto il tag audio con id specifico
+    const audio = document.getElementById(`audio-${id}`);
+    const btn = document.getElementById(`btn-${id}`);
+
+    // Check per capire se l'audio è in pausa
+    if (audio.paused) {
+        audio.play();
+        // Check per capire se il btn ha testo o icona
+        if (btn.innerText === 'Play') {
+            btn.innerText = 'Pause';
+        } else {
+            btn.innerHTML = '<i class="bi bi-pause-fill fs-1"></i>';
+        }
+    } else {
+        audio.pause();
+        //  riavvolgo la traccia
+        audio.currentTime = 0
+        // Check per capire se il btn ha testo o icona
+        if (btn.innerText === 'Pause') {
+            btn.innerText = 'Play';
+        } else {
+            btn.innerHTML = '<i class="bi bi-play-fill fs-1"></i>';
+        }
+    }
+};
 
 fetchSong();
+
+//EventListener  TO DO
+//avanti.addEventListener("click", () => Window.history.forward());
+//indietro.addEventListener("click", () => Window.history.back());
