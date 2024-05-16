@@ -49,32 +49,3 @@
     scale: 105%;
     box-shadow: 0 0 15px #000;
 }
-
-
-/* SKELETON */
-.skeleton h1, .skeleton p, .skeleton button {
-  color: transparent !important;
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: #3d3d3d;
-  pointer-events: none;
-  animation: skeleton 0.75s infinite alternate;
-}
-
-.skeleton button {
-    border-color: #3d3d3d !important;
-}
-
-.skeleton img {
-    animation: skeleton 0.75s infinite alternate;
-    filter: grayscale(100) contrast(0%) brightness(0.5);
-}
-
-@keyframes skeleton {
-  from {
-    opacity: .4;
-  }
-  to {
-    opacity: 1;
-  }
-}
