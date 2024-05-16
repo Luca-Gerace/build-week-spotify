@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Homepage</title>
+    <title>Spotify Search</title>
     <link rel="icon" sizes="32x32" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png"/>
     <link rel="icon" sizes="16x16" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon16.1c487bff.png"/>
     <link rel="icon" href="https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico"/>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom css -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="search.css">
 </head>
 <body class="overflow-hidden bg-black-700">
     <main class="container-fluid p-0 m-0">
@@ -26,13 +26,13 @@
                 <!-- Menu -->
                 <ul class="nav nav-pills flex-column gap-2 pt-2 mb-5">
                     <li class="nav-item">
-                        <a href="#" class="d-flex align-items-center gap-3 nav-link text-white current">
+                        <a href="index.html" class="d-flex align-items-center gap-3 nav-link text-white">
                             <i class="bi bi-house-fill"></i>
                             <strong class="fs-7">Home</strong>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="search.html" class="d-flex align-items-center gap-3 nav-link text-white">
+                        <a href="#" class="d-flex align-items-center gap-3 nav-link text-white current">
                             <i class="bi bi-search"></i>
                             <strong class="fs-7">Cerca</strong>
                         </a>
@@ -68,9 +68,9 @@
             </aside>
     
             <!-- Contents -->
-            <div id="songsContainer" class="bg-black-700 col col-md-9 col-xl-8 position-relative p-0 pb-5">
+            <div id="songsContainer" class="bg-black-700 col position-relative p-0 pb-5">
                 <!-- Controllers -->
-                <div class="page-controllers bg-black-700 d-flex justify-content-between align-items-center position-fixed z-2 left-0 top-0 p-4 text-white">
+                <div class="page-controllers no-aside bg-black-700 d-flex justify-content-between align-items-center position-fixed z-2 left-0 top-0 p-4 text-white">
                     <div class="d-flex gap-3">
                         <a href="#" class="text-white"><i class="bi bi-chevron-left fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
                         <a href="#" class="text-white"><i class="bi bi-chevron-right fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
@@ -92,7 +92,7 @@
                                     <p id="jumbotron-upper-text" class="text-white m-0 rounded-pill w-25">ALBUM</p>
                                     <h1 id="jumbotron-title" class="text-white fw-bold m-0 text-truncate rounded-pill w-75">Song title</h1>
                                     <p id="jumbotron-artist" class="text-white rounded-pill m-0 w-50">Artist name</p>
-                                    <p id="jumbotron-lower-text" class="text-white m-0 rounded-pill w-50">Ascolta ora</p>
+                                    <p id="jumbotron-lower-text" class="text-white m-0 rounded-pill w-50">Ascolta il nuovo singolo di artist name</p>
                                     <div id="jumbotron-buttons" class="d-flex gap-3 align-items-center mt-2">
                                         <button class="brand-bg brand-border rounded-pill py-2 fw-bold">
                                             Play
@@ -116,58 +116,14 @@
                     <div id="cardsContainer" class="row"></div>
                 </section>
             </div>
-            
-            <!-- Right sidebar -->
-            <aside class="col d-none d-xl-flex flex-column text-white p-3">
-                <div class="d-flex justify-content-between pt-3">
-                  <h5>Attività amici</h5>
-                  <div class="d-flex gap-3">
-                    <i class="bi bi-person-add"></i>
-                    <i class="bi bi-x-lg"></i>
-                  </div>
-                </div>
-                <ul id="friendsContainer" class="flex-column pt-5 ps-0 mb-5">
-                </ul>
-            </aside>
+
         </div>
-        <!-- Player -->
-        <section id="player" class="container-fluid position-fixed bottom-0 left-0 px-4 py-3 bg-black-500 z-2 shadow-lg">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex gap-3 align-items-center">
-                    <img class="w-25" src="https://picsum.photos/100" alt="">
-                    <div class="d-flex flex-column">
-                        <strong class="fs-7 text-white">Nome canzone</strong>
-                        <span class="fs-8 text-white-50">Artista</span>
-                    </div>
-                    </div>
-                    <div class="d-flex align-items-center flex-column">
-                    <div class="d-flex gap-4 justify-content-between align-items-center pb-1">
-                        <i class="bi bi-shuffle text-white fs-4"></i>
-                        <i class="bi bi-skip-backward-fill text-white fs-4"></i>
-                        <i class="bi bi-play-circle-fill text-white fs-4"></i>
-                        <i class="bi bi-skip-forward-fill text-white fs-4"></i>
-                        <i class="bi bi-box-arrow-down text-white fs-4"></i>
-                    </div>
-                    <div class="d-flex gap-3 justify-content-between">
-                        <div class="fs-7 text-white">00:00</div>
-                        <input type="range" min="1" max="100" value="0" class="seek_slider">
-                        <div class="fs-7 text-white">00:30</div>
-                    </div>
-                    </div>
-            
-                    <div class="d-flex gap-3 justify-content-between align-items-center">
-                        <i class="bi bi-mic text-white fs-4"></i>
-                        <i class="bi bi-chat-right-text text-white fs-4"></i>
-                        <i class="bi bi-volume-up text-white fs-4"></i>
-                        <input type="range" min="1" max="100" value="99" class="volume_slider text-light">
-                    </div>
-              </div>
-        </section>
+
     </main>
 
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- custom js -->    
-    <script src="script.js"></script>
+    <script src="search.js"></script>
 </body>
 </html>
