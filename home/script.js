@@ -53,8 +53,8 @@ const fetchSongs = async () => {
             if (counter < 7) {
                 // creo pills
                 createPill(item);
-            // se counter minore di 11
-            } else if (counter < 11) {
+            // se counter minore di 15
+            } else if (counter < 15) {
                 // creo cards
                 createCard(item);
             // se counter superiore a 11 esco dalla funzione

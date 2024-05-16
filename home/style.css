@@ -2,6 +2,18 @@ html, body {
     font-family: "Nunito Sans", sans-serif;
 }
 
+/* NAV */
+.nav-item:hover, .current {
+    background-color: #121212;
+    border-radius: 30px !important;
+}
+.page-controllers {
+    width: inherit;
+}
+.page-controllers.no-aside {
+    width: -webkit-fill-available;
+}
+
 /* CUSTOM FONT SIZE */
 .fs-7 {
     font-size: 14px;
@@ -32,65 +44,11 @@ html, body {
     background-color: #121212;
 }
 
-/* JUMBOTRON */
-.jumbotron .title {
-    font-size: 60px;
-}
-
-.jumbotron button {
-    min-width: 100px;
-}
-
-.jumbotron img {
-    width: 200px;
-    height: 200px;
-    min-width: 200px;
-}
-
-/* CARDS */
-#cardsContainer {
-    padding-bottom:1200px;
-}
-
-.card {
-    cursor: pointer;
-}
-
-.card-content {
-    min-height: 110px;
-}
-
-.card button {
-    width: 60px;
-    height: 60px;
-}
-
-.card button {
-    bottom: 85px;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: bottom 0.5s, opacity 0.3s;
-    right: 0;
-}
-
-.card:hover button {
-    bottom: 140px;
-    opacity: 1;
-    scale: 100%;
-    transition: scale 0.3s;
-}
-
-.card button:hover {
-    scale: 105%;
-    box-shadow: 0 0 15px #000;
-}
-
 /* USER IMG */
 .user-img {
     width: 30px;
     height: 30px;
 }
-
 
 /* CUSTOM SCROLL BAR */
 /* width */
@@ -121,34 +79,4 @@ html, body {
     #songsContainer section {
         position: inherit !important;
     }
-}
-
-
-/* SKELETON */
-
-.skeleton h1, .skeleton p, .skeleton button {
-  color: transparent !important;
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: #3d3d3d;
-  pointer-events: none;
-  animation: skeleton 0.75s infinite alternate;
-}
-
-.skeleton button {
-    border-color: #3d3d3d !important;
-}
-
-.skeleton img {
-    animation: skeleton 0.75s infinite alternate;
-    filter: grayscale(100) contrast(0%) brightness(0.5);
-}
-
-@keyframes skeleton {
-  from {
-    opacity: .4;
-  }
-  to {
-    opacity: 1;
-  }
 }
