@@ -53,11 +53,11 @@ const fetchSongs = async () => {
             if (counter < 7) {
                 // creo pills
                 createPill(item);
-            // se counter minore di 12
-            } else if (counter < 12) {
+            // se counter minore di 11
+            } else if (counter < 11) {
                 // creo cards
                 createCard(item);
-            // se counter superiore a 12 esco dalla funzione
+            // se counter superiore a 11 esco dalla funzione
             } else {
                 return
             }          
@@ -114,8 +114,8 @@ function createPosts() {
 }
 
 const friends = [
-    {name: 'Mario Rossi', img: '../assets/user-1.png', lastActivity: '3 ore', artist: 'Salmo', album: 'Machete Mixtape', song: 'Fuggitivo'},
-    {name: 'Giuseppe Verdi', img: '../assets/user-2.png', lastActivity: '4 ore', artist: 'Eminem', album: 'Lose youself', song: 'Mockingbird'},
+    {name: 'Mario Rossi', img: '../assets/user-1.png', lastActivity: '3 ore', artist: 'Salmo', album: 'Machete Mix', song: 'Fuggitivo'},
+    {name: 'Giuseppe Verdi', img: '../assets/user-2.png', lastActivity: '4 ore', artist: 'Eminem', album: 'Encore', song: 'Mockingbird'},
     {name: 'Salvatore Gialli', img: '../assets/user-1.png', lastActivity: '8 ore', artist: 'Liberato', album: 'Liberato', song: '9 maggio'},
 ];
 
@@ -126,14 +126,14 @@ function createFriends() {
         singleFriend.classList.add('d-flex', 'justify-content-between', 'p-2');
         singleFriend.innerHTML = `
             <div class="d-flex">
-                <img src="${friend.img}" alt="${friend.name}" class="user-img-m me-3" />
+                <img src="${friend.img}" alt="${friend.name}" class="d-xl-block d-none user-img me-2" />
                 <div class="d-flex flex-column text-white">
-                    <strong>${friend.name}</strong>
-                    <span class="fs-7">${friend.artist} &#183; ${friend.album}</span>
-                    <span class="fs-7">${friend.song}</span>
+                    <strong class="fs-7">${friend.name}</strong>
+                    <span class="fs-8">${friend.artist} &#183; ${friend.album}</span>
+                    <span class="fs-8">${friend.song}</span>
                 </div>
             </div>
-            <span class="text-white fs-7">${friend.lastActivity}</span>
+            <span class="text-white fs-8 d-xxl-block d-none">${friend.lastActivity}</span>
         `;
 
         friendsContainer.appendChild(singleFriend);
@@ -149,7 +149,7 @@ function createJumbtron(song) {
     jumbtron.classList.add('jumbtron');
 
     jumbtron.innerHTML = `
-        <div class="bg-black bg-gradient d-flex flex-row align-items-center my-5 px-3 py-4 gap-5">
+        <div class="bg-black bg-gradient d-none d-md-flex align-items-center my-5 px-3 py-4 gap-5">
             <img src="${song.artist.picture_xl}" alt="${song.title}"  class="w-25" />
             <div class="mb-0 text-white card-body w-75">
                 <p class="mb-1 text-white card-text">ALBUM</p>
@@ -181,13 +181,13 @@ function createPill(song) {
 
     const pill = document.createElement('div');
 
-    pill.classList.add('col-4');
+    pill.classList.add('col-12', 'col-md-6', 'col-lg-4');
 
     pill.innerHTML = `
-        <a href="#" class="text-decoration-none bg-black-500 rounded d-flex justify-content-start align-items-center gap-3 my-3">
+        <a href="#" class="text-decoration-none bg-black-500 rounded d-flex justify-content-start align-items-center my-3">
             <img src="${song.artist.picture}" alt="${song.title}" class="w-25 rounded-start" />
             <div class="title">
-                <p class="m-0 text-white">${song.title}</p>
+                <p class="py-2 px-3 m-0 text-white ${song.title < 50 ? 'fs-6' : 'fs-7'}">${song.title}</p>
             </div>
         </a>
     `
@@ -201,21 +201,24 @@ function createCard(song) {
 
     const card = document.createElement('div');
 
-    card.classList.add('col');
+    card.classList.add('col-12', 'col-md-6', 'col-lg-3', 'mb-4');
 
     card.innerHTML = `
-        <div class="card bg-black-500 p-3 position-relative">
-            <img src="${song.album.cover}" alt="${song.album.title}" class="rounded">
+        <div class="card bg-black-500 p-3">
+            <img src="${song.album.cover_big}" alt="${song.album.title}" class="rounded position-relative overflow-hidden">
+            <button id="btn-${song.id}" onclick="playSong(${song.id})" class="text-black rounded-circle brand-bg position-absolute border-0 text-center z-1"><i class="bi bi-play-fill fs-1"></i></button>
+            <audio id="audio-${song.id}">
+                <source src="${song.preview}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
             <div class="card-content d-flex flex-column justify-content-between pt-4">
-                <h3 class="card-title fs-6 fw-bold text-white">${song.album.title}</h3>
+                <h3 class="card-title fw-bold text-white ${song.album.title < 50 ? 'fs-6' : 'fs-7'}">${song.album.title}</h3>
                 <p class="card-text fs-7 text-white-50">${song.artist.name}</p>
             </div>
-            <button onclick="" class="text-black rounded-circle brand-bg position-absolute border-0 text-center"><i class="bi bi-play-fill fs-1"></i></a>
         </div>
     `
 
     cardsContainer.appendChild(card);
-
 }
 
 // Song player
@@ -224,12 +227,23 @@ function playSong(id) {
     const audio = document.getElementById(`audio-${id}`);
     const btn = document.getElementById(`btn-${id}`);
 
+    // Check per capire se l'audio è in pausa
     if (audio.paused) {
         audio.play();
-        btn.innerText = 'Pause';
+        // Check per capire se il btn ha testo o icona
+        if (btn.innerText === 'Play') {
+            btn.innerText = 'Pause';
+        } else {
+            btn.innerHTML = '<i class="bi bi-pause-fill fs-1"></i>';
+        }
     } else {
         audio.pause();
-        btn.innerText = 'Play';
+        // Check per capire se il btn ha testo o icona
+        if (btn.innerText === 'Pause') {
+            btn.innerText = 'Play';
+        } else {
+            btn.innerHTML = '<i class="bi bi-play-fill fs-1"></i>';
+        }
     }
 };
 

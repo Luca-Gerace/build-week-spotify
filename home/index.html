@@ -17,11 +17,11 @@
     <!-- Custom css -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="overflow-hidden">
+<body class="overflow-hidden bg-black-700">
     <main class="container-fluid p-0 m-0">
         <div class="row w-100 bg-black pb-5 m-0">
             <!-- Left sidebar -->
-            <aside class="col-3 d-flex flex-column text-white p-3">
+            <aside class="col col-md-3 col-lg-3 col-xl-2 d-md-flex d-none flex-column text-white p-3">
                 <!-- Menu -->
                 <ul class="nav nav-pills flex-column mb-5">
                     <li class="nav-item">
@@ -61,7 +61,7 @@
             </aside>
     
             <!-- Contents -->
-            <div id="songsContainer" class="bg-black-700 col-7 position-relative p-0 pb-5">
+            <div id="songsContainer" class="bg-black-700 col col-md-9 col-xl-8 position-relative p-0 pb-5">
                 <!-- Controllers -->
                 <div class="bg-black-700 d-flex justify-content-between align-items-center position-fixed z-1 left-0 top-0 p-4 text-white" style="width:inherit">
                     <div class="d-flex gap-3">
@@ -69,16 +69,19 @@
                         <a href="#" class="text-white"><i class="bi bi-chevron-right fs-5 rounded-circle bg-black-500 py-1 px-2 text-decoration-none"></i></a>
                     </div>
                     <a href="#" class="text-decoration-none bg-black-500 rounded-pill d-flex justify-content-start align-items-center">
-                        <img src="../assets/user-2.png" alt="Username" class="user-img-s" />
+                        <img src="../assets/user-2.png" alt="Username" class="user-img" />
                         <p class="px-3 py-2 m-0 text-white fs-7">Username</p>
                     </a>
                 </div>
-                <section class="w-100 h-100 position-absolute top-0 left-0 overflow-y-auto py-5 px-4">
+                <section class="w-100 h-100 position-absolute md-top-0 md-left-0 overflow-y-auto py-5 px-4">
+                    
                     <!-- Jumbotron container -->
-                    <div id="jumbotron"></div>
+                    <div id="jumbotron">
+                        <!-- Skeleton -->
+                    </div>
         
                     <!-- pills section -->
-                    <h2 class="fw-bold text-white my-3">Buonasera</h2>
+                    <h2 class="fw-bold text-white mb-3 mt-5 mt-md-3">Buonasera</h2>
                     <div id="pillsContainer" class="row"></div>
         
                     <!-- cards section -->
@@ -88,7 +91,7 @@
             </div>
             
             <!-- Right sidebar -->
-            <aside class="col-2 d-flex flex-column text-white p-3">
+            <aside class="col d-none d-xl-flex flex-column text-white p-3">
                 <div class="d-flex justify-content-between pt-3">
                   <h5>Attività amici</h5>
                   <div class="d-flex gap-3">
@@ -101,7 +104,38 @@
             </aside>
         </div>
         <!-- Player -->
-        <section id="player" class="container-fluid position-fixed bottom-0 left-0 p-4 bg-dark"></section>
+        <section id="player" class="container-fluid position-fixed bottom-0 left-0 px-4 py-3 bg-black-500 z-2 shadow-lg">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex gap-3 align-items-center">
+                    <img class="w-25" src="https://picsum.photos/100" alt="">
+                    <div class="d-flex gap-2 flex-column text-white">
+                        <div>Nome canzone</div>
+                        <div>Artista</div>
+                    </div>
+                    </div>
+                    <div class="d-flex align-items-center flex-column">
+                    <div class="d-flex gap-4 justify-content-between align-items-center pb-1">
+                        <i class="bi bi-shuffle text-white fs-4"></i>
+                        <i class="bi bi-skip-backward-fill text-white fs-4"></i>
+                        <i class="bi bi-play-circle-fill text-white fs-4"></i>
+                        <i class="bi bi-skip-forward-fill text-white fs-4"></i>
+                        <i class="bi bi-box-arrow-down text-white fs-4"></i>
+                    </div>
+                    <div class="d-flex gap-3 justify-content-between">
+                        <div class="current-time text-light">00:00</div>
+                        <input type="range" min="1" max="100" value="0" class="seek_slider">
+                        <div class="total-duration text-light">00:30</div>
+                    </div>
+                    </div>
+            
+                    <div class="d-flex gap-3 justify-content-between align-items-center">
+                        <i class="bi bi-mic text-white fs-4"></i>
+                        <i class="bi bi-chat-right-text text-white fs-4"></i>
+                        <i class="bi bi-volume-up text-white fs-4"></i>
+                        <input type="range" min="1" max="100" value="99" class="volume_slider text-light">
+                    </div>
+              </div>
+        </section>
     </main>
 
     <!-- bootstrap js -->
