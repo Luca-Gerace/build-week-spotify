@@ -1,0 +1,26 @@
+.brand-gradient {
+    background: linear-gradient(180deg, #00c866 0%, #242424 100%);    
+}
+
+.bg-gradinent-trasparent {
+    background: linear-gradient(180deg, #24242456 0%, #242424 100%);    
+}
+
+.song-counter {
+    min-width: 20px;
+}
+
+.jumbotron {
+    padding-top: 200px;
+}
+
+#artist-background {
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 400px;
+}
+
+.text-shadow * {
+    text-shadow: 0 0 5px #000;
+}

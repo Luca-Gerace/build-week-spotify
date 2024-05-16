@@ -2,15 +2,13 @@
 const jumbotronContainer = document.getElementById('jumbotron');
 const pillsContainer = document.getElementById('pillsContainer');
 const cardsContainer = document.getElementById('cardsContainer');
-const postsContainer = document.getElementById('postsContainer');
-const friendsContainer = document.getElementById('friendsContainer');
 
 /* ------------------------ CHIAMATE API ----------------------- */
 const url = 'https://striveschool-api.herokuapp.com/api/deezer';
 const albumUrl = `${url}/album`;
 const artistUrl = `${url}/artist`;
 const searchUrl = `${url}/search?q=`;
-
+ 
 const request = { method: 'GET', headers: {"Content-Type": "application/json"}}
 
 // chiamata per contenuti
@@ -39,7 +37,7 @@ const fetchSongs = async () => {
             // se counter è compreso tra 8 e 15
             } else if (counter < 16) {
                 // creo cards
-                createCard(item);
+                createCard(item, counter);
             // se counter superiore a 15 esco dalla funzione
             } else {
                 return
@@ -49,77 +47,6 @@ const fetchSongs = async () => {
     } catch(error) {
         console.error('error:', error);
     }
-}
-
-/* ----------------------- DATI STATICI ----------------------- */
-
-// Genera post a  partire dall'array post
-const posts = [
-    "Ciao, mondo! 😊",
-    "Questo è un esempio! 😎",
-    "JavaScript è divertente! 😜",
-    "Emoticon aggiunge divertimento! 😄",
-    "Spero che tu stia bene! 😇",
-    "Buona giornata! 🥳",
-    "Continua a sorridere! 😃",
-    "Divertiti programmando! 🤓",
-    "Non arrenderti mai! 💪",
-    "Felice coding! 😊",
-    "Ehi, come stai? 🤔",
-    "Questa è una bella giornata! ☀️",
-    "Inizia con positività! 😁",
-    "Segui i tuoi sogni! 💭",
-    "Sii creativo! 🎨",
-    "Innovazione è la chiave! 🔑",
-    "Sii te stesso! 🌟",
-    "Pensiero positivo! 🌈",
-    "Respira e rilassati! 🧘‍♂️",
-    "Impara, pratica, esegui! 💻",
-    "Ama ciò che fai! ❤️",
-    "Sorridi, anche se è difficile! 😊",
-    "Credi in te stesso! 🙌",
-    "Vai avanti con fiducia! 🚀",
-    "Conquista il mondo! 🌍",
-    "Un passo alla volta! 👣",
-    "Ogni giorno è una nuova avventura! 🌟",
-    "Goditi il viaggio! 🚗",
-    "Vivi il momento! ⏳",
-    "Raggiungi le stelle! 🌠"
-];
-function createPosts() {
-    posts.forEach(post => {
-        const singlePost = document.createElement('p');
-        singlePost.classList.add('fs-7');
-        singlePost.innerText = post;
-
-        postsContainer.appendChild(singlePost);
-    })
-}
-
-// Genera amici a partire dall'array friends
-const friends = [
-    {name: 'Mario Rossi', img: '../assets/user-1.png', lastActivity: '3 ore', artist: 'Salmo', album: 'Machete Mix', song: 'Fuggitivo'},
-    {name: 'Giuseppe Verdi', img: '../assets/user-2.png', lastActivity: '4 ore', artist: 'Eminem', album: 'Encore', song: 'Mockingbird'},
-    {name: 'Salvatore Gialli', img: '../assets/user-1.png', lastActivity: '8 ore', artist: 'Liberato', album: 'Liberato', song: '9 maggio'},
-];
-function createFriends() {
-    friends.forEach(friend => {
-        const singleFriend = document.createElement('li');
-        singleFriend.classList.add('d-flex', 'justify-content-between', 'p-2');
-        singleFriend.innerHTML = `
-            <div class="d-flex">
-                <img src="${friend.img}" alt="${friend.name}" class="d-xl-block d-none user-img me-2" />
-                <div class="d-flex flex-column text-white">
-                    <strong class="fs-7">${friend.name}</strong>
-                    <span class="fs-8">${friend.artist} &#183; ${friend.album}</span>
-                    <span class="fs-8">${friend.song}</span>
-                </div>
-            </div>
-            <span class="text-white fs-8 d-xxl-block d-none">${friend.lastActivity}</span>
-        `;
-
-        friendsContainer.appendChild(singleFriend);
-    })
 }
 
 /* ------------------------- FUNZIONI ------------------------- */
@@ -184,28 +111,30 @@ function createPill(song) {
 }
 
 // Creo cards
-function createCard(song) {
+function createCard(song, counter) {
 
-    const card = document.createElement('div');
+    const card = document.getElementById(`card-${counter}`);
 
-    card.classList.add('col-12', 'col-md-6', 'col-lg-3', 'mb-4');
+    setTimeout(() => {
+        card.classList.add('col-12', 'col-md-6', 'col-lg-3', 'mb-4');
 
-    card.innerHTML = `
-        <div class="card bg-black-500 p-3">
-            <img src="${song.album.cover_big}" alt="${song.album.title}" class="rounded position-relative overflow-hidden">
-            <button id="btn-${song.id}" onclick="playSong(${song.id})" class="text-black rounded-circle brand-bg position-absolute border-0 text-center z-1"><i class="bi bi-play-fill fs-1"></i></button>
-            <audio id="audio-${song.id}">
-                <source src="${song.preview}" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <div class="card-content d-flex flex-column justify-content-between pt-4">
-                <h3 class="card-title fw-bold text-white ${song.album.title < 50 ? 'fs-6' : 'fs-7'}">${song.album.title}</h3>
-                <p class="card-text fs-7 text-white-50">${song.artist.name}</p>
+        card.innerHTML = `
+            <div class="card bg-black-500 p-3">
+                <img src="${song.album.cover_big}" alt="${song.album.title}" class="rounded position-relative overflow-hidden">
+                <button id="btn-${song.id}" onclick="playSong(${song.id})" class="text-black rounded-circle brand-bg position-absolute border-0 text-center z-1"><i class="bi bi-play-fill fs-1"></i></button>
+                <audio id="audio-${song.id}">
+                    <source src="${song.preview}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="card-content d-flex flex-column justify-content-between pt-4">
+                    <h3 class="card-title fw-bold text-white ${song.album.title < 50 ? 'fs-6' : 'fs-7'}"><a href="album.html?id=${song.album.id}" class="text-white text-decoration-none">${song.album.title}</a></h3>
+                    <p class="card-text fs-7 text-white-50"><a href="artist.html?id=${song.artist.id}" class="text-white text-decoration-none">${song.artist.name}</a></p>
+                </div>
             </div>
-        </div>
-    `
-
-    cardsContainer.appendChild(card);
+        `
+        cardsContainer.appendChild(card);
+        card.classList.remove('skeleton');
+    }, 1500);
 }
 
 // Song player
@@ -258,7 +187,5 @@ function randomString(x) {
 /* ---------------------- EVENT LISTNER ----------------------- */
 document.addEventListener('DOMContentLoaded', function() {
     // Al caricamento del DOM lancio le funzioni per creare i contenuti
-    createPosts();
-    createFriends();
     fetchSongs();
 })

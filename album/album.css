@@ -1,0 +1,15 @@
+.brand-gradient {
+    background: linear-gradient(180deg, #00c866 0%, #242424 100%);    
+}
+
+.bg-gradinent-trasparent {
+    background: linear-gradient(180deg, #24242456 0%, #242424 100%);    
+}
+
+.song-counter {
+    min-width: 20px;
+}
+
+#songsTable {
+    padding-bottom:750px !important;
+}

@@ -81,7 +81,7 @@ function createCard(song, card) {
     setTimeout(() => {
         
         card.innerHTML = `
-            <a href="${song.album.id}" class="text-white text-decoration-none position-relative w-100 rounded">
+            <a href="album.html?id=${song.album.id}" class="text-white text-decoration-none position-relative w-100 rounded">
                 <img src="${song.album.cover_medium}" class="w-100 rounded" alt="">
             </a>
         `
