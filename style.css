@@ -14,6 +14,10 @@ html, body {
     width: -webkit-fill-available;
 }
 
+a:not(.nav-link):hover {
+    text-decoration: underline !important;
+}
+
 /* CUSTOM FONT SIZE */
 .fs-7 {
     font-size: 14px;
@@ -74,7 +78,7 @@ html, body {
 
 
 /* SKELETON */
-.skeleton h1, .skeleton h2, .skeleton h3, .skeleton p, .skeleton a, .skeleton button {
+.skeleton h1, .skeleton h2, .skeleton h3, .skeleton p, .skeleton a:not(.no-skeleton), .skeleton button {
     color: transparent !important;
     appearance: none;
     -webkit-appearance: none;

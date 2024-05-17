@@ -3,6 +3,8 @@ const jumbotronContainer = document.getElementById('jumbotron');
 const songlist = document.getElementById('songlist');
 const songsTable = document.getElementById('songsTable');
 const artistBg = document.getElementById('artist-background');
+const back = document.getElementById('back');
+const forward = document.getElementById('forward');
 
 //
 const request = { method: 'GET', headers: { "Content-Type": "application/json" } }
@@ -87,7 +89,7 @@ function createSongList(song, counter) {
                 </div>
             </div>
             <p class="col-3 text-white-50 text-end">${song.rank}</p>
-            <p class="col-3 text-white-50 text-end">${song.duration}</p> 
+            <p class="col-3 text-white-50 text-end">${songDuration(song.duration)}</p> 
         </div>
     `;
 
@@ -123,5 +125,23 @@ function playSong(id) {
     }
 };
 
+
+
+function songDuration(number) {
+    // Converto numero in stringa
+    const numberStr = number.toString();
+
+    // formatto la visualizzazione del dato
+    if (numberStr.length === 3) {
+        return `${numberStr[0]}:${numberStr.slice(1)}`;
+    } else {
+        return `0:${numberStr}`;
+    }
+}
+
 fetchSong();
 fetchJumbotron();
+
+/* ---------------------- EVENT LISTNER ----------------------- */
+back.addEventListener("click", () => window.history.back());
+forward.addEventListener("click", () => window.history.forward());

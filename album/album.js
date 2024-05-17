@@ -2,8 +2,8 @@
 const jumbotronContainer = document.getElementById('jumbotron');
 const songlist = document.getElementById('songlist');
 const songsTable = document.getElementById('songsTable');
-const avanti = document.getElementById('avanti');
-const indietro = document.getElementById('indietro');
+const back = document.getElementById('back');
+const forward = document.getElementById('forward');
 
 //
 const url = 'https://striveschool-api.herokuapp.com/api/deezer/album';
@@ -128,6 +128,6 @@ function playSong(id) {
 
 fetchSong();
 
-//EventListener  TO DO
-//avanti.addEventListener("click", () => Window.history.forward());
-//indietro.addEventListener("click", () => Window.history.back());
+/* ---------------------- EVENT LISTNER ----------------------- */
+back.addEventListener("click", () => window.history.back());
+forward.addEventListener("click", () => window.history.forward());

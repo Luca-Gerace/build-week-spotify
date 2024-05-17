@@ -2,6 +2,8 @@
 const jumbotronContainer = document.getElementById('jumbotron');
 const pillsContainer = document.getElementById('pillsContainer');
 const cardsContainer = document.getElementById('cardsContainer');
+const back = document.getElementById('back');
+const forward = document.getElementById('forward');
 
 /* ------------------------ CHIAMATE API ----------------------- */
 const url = 'https://striveschool-api.herokuapp.com/api/deezer';
@@ -189,3 +191,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Al caricamento del DOM lancio le funzioni per creare i contenuti
     fetchSongs();
 })
+
+back.addEventListener("click", () => window.history.back());
+forward.addEventListener("click", () => window.history.forward());
