@@ -1,18 +1,3 @@
-/* JUMBOTRON */
-.jumbotron .title {
-    font-size: 60px;
-}
-
-.jumbotron button {
-    min-width: 100px;
-}
-
-.jumbotron img {
-    width: 200px;
-    height: 200px;
-    min-width: 200px;
-}
-
 /* CARDS */
 #cardsContainer {
     padding-bottom:1200px;

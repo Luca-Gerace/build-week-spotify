@@ -6,19 +6,14 @@ const artistBg = document.getElementById('artist-background');
 const back = document.getElementById('back');
 const forward = document.getElementById('forward');
 
-//
+/* ------------------------ CHIAMATE API ----------------------- */
 const request = { method: 'GET', headers: { "Content-Type": "application/json" } }
-
 const params = new URLSearchParams(window.location.search);
-
 const query = params.get('id');
-
 const urlTracklist = `https://striveschool-api.herokuapp.com/api/deezer/artist/${query}/top?limit=10`;
 const urlArtist = `https://striveschool-api.herokuapp.com/api/deezer/artist/${query}`;
 
-
-console.log(urlTracklist);
-// jumbotron
+// Chiamata per jumbotron
 const fetchJumbotron = async () => {
     try {
         let response = await fetch(urlArtist, request);
@@ -33,7 +28,7 @@ const fetchJumbotron = async () => {
     }
 }
 
-// artist songs
+// Chiamata perlista canzoni
 const fetchSong = async () => {
     try {
         let response = await fetch(urlTracklist, request);
@@ -58,6 +53,7 @@ function createJumbotron(artist) {
 
     // Punto elementi jumbotron
     const jImg = document.getElementById('jumbotron-img');
+    const jUpText = document.getElementById('jumbotron-upper-text');
     const jTitle = document.getElementById('jumbotron-title');
     const jFan = document.getElementById('jumbotron-fan');
     artistBg.style.backgroundImage = `url(${artist.picture_xl})`;
@@ -66,9 +62,11 @@ function createJumbotron(artist) {
         jImg.src = ``;
         jImg.src = `${artist.picture_xl}`;
         jImg.alt = `${artist.name}`;
+        jUpText.innerHTML = ' <i class="bi bi-patch-check-fill text-primary me-2"></i> Artista verificato';
+        jUpText.classList.remove('w-50', 'rounded-pill');
         jTitle.innerText = `${artist.name}`;
         jFan.innerText = `${artist.nb_fan} Ascoltatori mensili`;
-        jTitle.classList.remove('w-75', 'rounded-pill');
+        jTitle.classList.remove('w-100', 'rounded-pill');
         jFan.classList.remove('w-50', 'rounded-pill');
         jumbotronContainer.classList.remove('skeleton');
 
@@ -125,8 +123,7 @@ function playSong(id) {
     }
 };
 
-
-
+// funzione per formattare il dato durata canzone
 function songDuration(number) {
     // Converto numero in stringa
     const numberStr = number.toString();
@@ -139,9 +136,13 @@ function songDuration(number) {
     }
 }
 
-fetchSong();
-fetchJumbotron();
-
 /* ---------------------- EVENT LISTNER ----------------------- */
+document.addEventListener('DOMContentLoaded', function() {
+    // Al caricamento del DOM lancio le funzioni per creare i contenuti
+    fetchJumbotron();
+    fetchSong();
+})
+
+// event listerner per i bottoni di navigazione
 back.addEventListener("click", () => window.history.back());
 forward.addEventListener("click", () => window.history.forward());

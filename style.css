@@ -76,6 +76,27 @@ a:not(.nav-link):hover {
     background: #555;
 }
 
+/* JUMBOTRON */
+.jumbotron .title {
+    font-size: 60px;
+}
+
+.jumbotron button {
+    min-width: 100px;
+}
+
+.jumbotron img {
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
+}
+
+.jumbotron img#artist-img {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+}
+
 
 /* SKELETON */
 .skeleton h1, .skeleton h2, .skeleton h3, .skeleton p, .skeleton a:not(.no-skeleton), .skeleton button {

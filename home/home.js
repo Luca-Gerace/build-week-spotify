@@ -192,5 +192,6 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchSongs();
 })
 
+// event listerner per i bottoni di navigazione
 back.addEventListener("click", () => window.history.back());
 forward.addEventListener("click", () => window.history.forward());

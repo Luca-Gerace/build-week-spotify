@@ -63,7 +63,6 @@ function createFriends() {
     })
 }
 
-
 /* ---------------------- EVENT LISTNER ----------------------- */
 document.addEventListener('DOMContentLoaded', function() {
     // Al caricamento del DOM lancio le funzioni per creare i contenuti

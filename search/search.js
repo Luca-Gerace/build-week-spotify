@@ -6,7 +6,7 @@ const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 
 /* ----------------------- DATI STATICI ----------------------- */
-// Al caricamento gli skeleton delle card 
+// creazione skeleton delle card 
 function skeletonBuilder() {
     for (let i = 0; i < 18; i++) {
         const card = document.createElement('div');
@@ -28,7 +28,6 @@ function skeletonBuilder() {
 
 /* ------------------------ CHIAMATE API ----------------------- */
 const url = 'https://striveschool-api.herokuapp.com/api/deezer/search?q=';
-
 const request = { method: 'GET', headers: {"Content-Type": "application/json"}};
 
 // chiamata per cards
@@ -134,7 +133,9 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchSongs();
 })
 
+// event listerner input di ricerca
+searchButton.addEventListener('click', (e) => fetchResearch(e, searchInput.value));
+
+// event listerner per i bottoni di navigazione
 back.addEventListener("click", () => window.history.back());
 forward.addEventListener("click", () => window.history.forward());
-
-searchButton.addEventListener('click', (e) => fetchResearch(e, searchInput.value));
